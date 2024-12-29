@@ -23,7 +23,7 @@ export default function Education() {
 
   return (
     <section id="education" className="py-16">
-      <h2 className="text-3xl font-semibold text-slate-800 mb-8 text-center">Education Journey</h2>
+      <h2 className="text-3xl font-semibold text-slate-800 mb-8 text-center">Education</h2>
       <div className="max-w-4xl mx-auto space-y-8">
         {education.map((edu, index) => (
           <Card key={index} className={`overflow-hidden ${edu.color} border-none shadow-lg transition-all hover:shadow-xl`}>
