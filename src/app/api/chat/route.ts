@@ -36,9 +36,9 @@ export async function POST(request: Request) {
     const player = await prisma.player.findFirst({
       where: {
         OR: [
-          { name: { $regex: playerName, $options: 'i' } },
-          { name: { $regex: playerName.split(' ')[0], $options: 'i' } },
-          { name: { $regex: playerName.split(' ').slice(-1)[0], $options: 'i' } }
+          { name: { contains: playerName, mode: 'insensitive' } },
+          { name: { contains: playerName.split(' ')[0], mode: 'insensitive' } },
+          { name: { contains: playerName.split(' ').slice(-1)[0], mode: 'insensitive' } }
         ]
       }
     })
