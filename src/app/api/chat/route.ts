@@ -9,9 +9,8 @@ const openai = new OpenAI({
 })
 
 export async function POST(request: Request) {
-  const { question } = await request.json()
-  
   try {
+    const { question } = await request.json()
     const playerName = await analyzeQuestion(question)
     
     if (!playerName && (
@@ -37,10 +36,9 @@ export async function POST(request: Request) {
     const player = await prisma.player.findFirst({
       where: {
         OR: [
-          { name: { equals: playerName, mode: 'insensitive' } },
-          { name: { contains: playerName, mode: 'insensitive' } },
-          { name: { contains: playerName.split(' ')[0], mode: 'insensitive' } },
-          { name: { contains: playerName.split(' ').slice(-1)[0], mode: 'insensitive' } },
+          { name: { $regex: playerName, $options: 'i' } },
+          { name: { $regex: playerName.split(' ')[0], $options: 'i' } },
+          { name: { $regex: playerName.split(' ').slice(-1)[0], $options: 'i' } }
         ]
       }
     })
@@ -54,16 +52,16 @@ export async function POST(request: Request) {
     await prisma.player.update({
       where: { id: player.id },
       data: { updatedAt: new Date() }
-    });
+    })
 
     const response = await generateNaturalResponse(question, player)
     return NextResponse.json({ response })
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error:', error)
     return NextResponse.json({ 
       response: error instanceof Error ? error.message : "Failed to process request"
-    });
+    })
   }
 }
 
