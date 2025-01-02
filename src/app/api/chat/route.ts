@@ -1,13 +1,12 @@
 import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 import { analyzeQuestion } from '@/utils/openai'
-import { getPhysicalCharacteristics, getHeight, getWeight, getFootedness } from '@/utils/playerAttributes';
-import OpenAI from 'openai';
-import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
+import OpenAI from 'openai'
+import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-});
+})
 
 export async function POST(request: Request) {
   const { question } = await request.json()
@@ -22,10 +21,10 @@ export async function POST(request: Request) {
     )) {
       const lastPlayer = await prisma.player.findFirst({
         orderBy: { updatedAt: 'desc' }
-      });
+      })
       if (lastPlayer) {
-        const response = await generateNaturalResponse(question, lastPlayer);
-        return NextResponse.json({ response });
+        const response = await generateNaturalResponse(question, lastPlayer)
+        return NextResponse.json({ response })
       }
     }
 
