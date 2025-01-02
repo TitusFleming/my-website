@@ -1,12 +1,13 @@
 import OpenAI from 'openai';
 import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error('Missing OPENAI_API_KEY environment variable');
+const apiKey = process.env.OPENAI_API_KEY;
+if (!apiKey) {
+  console.error('Warning: Missing OPENAI_API_KEY environment variable');
 }
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: apiKey || '', // Provide empty string as fallback
 });
 
 export async function analyzeQuestion(question: string): Promise<string | null> {
