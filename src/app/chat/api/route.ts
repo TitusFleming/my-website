@@ -1,11 +1,10 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 import { analyzeQuestion } from '@/utils/openai'
 import { getPhysicalCharacteristics, getHeight, getWeight, getFootedness } from '@/utils/playerAttributes';
 import OpenAI from 'openai';
 import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
-const prisma = new PrismaClient()
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
