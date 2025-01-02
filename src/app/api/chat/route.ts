@@ -1,16 +1,19 @@
-import { prisma } from '@/lib/prisma'
+import { PrismaClient } from '@prisma/client'
 import { NextResponse } from 'next/server'
 import { analyzeQuestion } from '@/utils/openai'
-import OpenAI from 'openai'
-import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions'
+import { getPhysicalCharacteristics, getHeight, getWeight, getFootedness } from '@/utils/playerAttributes';
+import OpenAI from 'openai';
+import type { ChatCompletionMessageParam } from 'openai/resources/chat/completions';
 
+const prisma = new PrismaClient()
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-})
+});
 
 export async function POST(request: Request) {
+  const { question } = await request.json()
+  
   try {
-    const { question } = await request.json()
     const playerName = await analyzeQuestion(question)
     
     if (!playerName && (
@@ -20,10 +23,10 @@ export async function POST(request: Request) {
     )) {
       const lastPlayer = await prisma.player.findFirst({
         orderBy: { updatedAt: 'desc' }
-      })
+      });
       if (lastPlayer) {
-        const response = await generateNaturalResponse(question, lastPlayer)
-        return NextResponse.json({ response })
+        const response = await generateNaturalResponse(question, lastPlayer);
+        return NextResponse.json({ response });
       }
     }
 
@@ -36,9 +39,10 @@ export async function POST(request: Request) {
     const player = await prisma.player.findFirst({
       where: {
         OR: [
+          { name: { equals: playerName, mode: 'insensitive' } },
           { name: { contains: playerName, mode: 'insensitive' } },
           { name: { contains: playerName.split(' ')[0], mode: 'insensitive' } },
-          { name: { contains: playerName.split(' ').slice(-1)[0], mode: 'insensitive' } }
+          { name: { contains: playerName.split(' ').slice(-1)[0], mode: 'insensitive' } },
         ]
       }
     })
@@ -52,16 +56,16 @@ export async function POST(request: Request) {
     await prisma.player.update({
       where: { id: player.id },
       data: { updatedAt: new Date() }
-    })
+    });
 
     const response = await generateNaturalResponse(question, player)
     return NextResponse.json({ response })
 
   } catch (error) {
-    console.error('Error:', error)
+    console.error('Error:', error);
     return NextResponse.json({ 
       response: error instanceof Error ? error.message : "Failed to process request"
-    })
+    });
   }
 }
 
