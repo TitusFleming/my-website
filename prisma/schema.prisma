@@ -1,0 +1,30 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Player {
+  id                        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name                      String
+  age                      Float?
+  position                 String?
+  foot                     String?
+  height                   String?
+  weight                   String?
+  goals_per90              Float?
+  assists_per90            Float?
+  goals_assists_per90      Float?
+  goals_pens_per90         Float?
+  goals_assists_pens_per90 Float?
+  xg_per90                 Float?
+  xg_assist_per90          Float?
+  xg_xg_assist_per90       Float?
+  npxg_per90               Float?
+  npxg_xg_assist_per90     Float?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
