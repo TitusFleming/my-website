@@ -1,9 +1,11 @@
 import { Card, CardContent, CardFooter } from "@/components/card";
 import { Badge } from "@/components/badge";
 import { Button } from "@/components/button";
+import Link from 'next/link';
 
 export default function Projects() {
   const projects = [
+    
     // {
     //   title: "AI-Powered Chess Tutor",
     //   description: "Developed a machine learning model to analyze chess games and provide personalized feedback to improve players' skills.",
@@ -28,6 +30,13 @@ export default function Projects() {
     //   technologies: ["Python", "Music21 library", "MIDI"],
     //   link: "https://github.com/TitusFleming/algo-composer"
     // },
+    {
+      title: "Soccer Analytics Chatbot",
+      description: "Developed an AI-powered chatbot leveraging the FBRef database of 250,000+ player profiles, enabling users to query detailed soccer statistics and analytics through natural language processing, enhancing accessibility to professional soccer data.",
+      color: "bg-blue-50",
+      technologies: ["Python", "OpenAI API", "FBRef Data", "Natural Language Processing"],
+      link: "/soccer"
+    },
     {
       title: "Tetris",
       description: "Developed the classic game Tetris using JavaFX Java 21, implemented features focusing on user experience and gameplay mechanics.",
@@ -58,6 +67,11 @@ export default function Projects() {
                   <Badge key={techIndex} variant="secondary">{tech}</Badge>
                 ))}
               </div>
+              {project.link && (
+                <Link href={project.link}>
+                  <Button className="w-full">Try it out</Button>
+                </Link>
+              )}
             </CardContent>
           </Card>
         ))}
