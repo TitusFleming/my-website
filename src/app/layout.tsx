@@ -4,8 +4,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Richard “Tito” Fleming - Computer Science Student',
-  description: 'Personal website of Richard “Tito” Fleming, a Computer Science sophomore at Brown University',
+  title: 'Richard "Tito" Fleming - Computer Science Student',
+  description: 'Personal website of Richard "Tito" Fleming, a Computer Science student at Brown University',
 };
 
 export default function RootLayout({

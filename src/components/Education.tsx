@@ -14,9 +14,24 @@ export default function Education() {
         "Data Structures and Algorithms",
         "Object-Oriented Programming",
         "Computer Systems",
-        "Artificial Intelligence",
-        "Database Management Systems",
+        "Software Engineering",
+        "Database Management",
         "Web Development"
+      ]
+    },
+    {
+      school: "Bergen County Academies",
+      degree: "Academy for the Advancement of Science and Technology",
+      period: "2019 - 2023",
+      icon: <School className="w-6 h-6 text-blue-600" />,
+      color: "bg-blue-50",
+      details: [
+        "Advanced Computer Science",
+        "Advanced Mathematics",
+        "Research Methodology",
+        "Scientific Programming",
+        "Data Analysis",
+        "Technical Writing"
       ]
     }
   ];

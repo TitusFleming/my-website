@@ -4,17 +4,17 @@ import { Badge } from "@/components/badge";
 export default function Skills() {
   const skills = [
     { name: "Python", level: "Advanced" },
-    { name: "JavaScript", level: "Advanced" },
-    { name: "Next.js", level: "Intermediate" },
     { name: "Java", level: "Advanced" },
+    { name: "JavaScript/TypeScript", level: "Advanced" },
     { name: "C", level: "Advanced" },
-    { name: "Node.js", level: "Intermediate" },
-    { name: "GDB", level: "Intermediate" },
+    { name: "SQL", level: "Advanced" },
+    { name: "React", level: "Advanced" },
+    { name: "Next.js", level: "Advanced" },
+    { name: "Node.js", level: "Advanced" },
     { name: "Git", level: "Advanced" },
-    { name: "Assembly", level: "Intermediate" },
-    { name: "IntelliJ IDEA", level: "Advanced" },
-    { name: "React", level: "Intermediate" },
     { name: "Docker", level: "Intermediate" },
+    { name: "Tableau", level: "Intermediate" },
+    { name: "Assembly", level: "Intermediate" },
   ];
 
   return (
