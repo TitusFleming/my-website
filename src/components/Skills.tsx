@@ -5,7 +5,7 @@ export default function Skills() {
   const skills = [
     { name: "Python", level: "Advanced" },
     { name: "Java", level: "Advanced" },
-    { name: "JavaScript/TypeScript", level: "Advanced" },
+    { name: "TypeScript", level: "Advanced" },
     { name: "C", level: "Advanced" },
     { name: "SQL", level: "Advanced" },
     { name: "React", level: "Advanced" },
