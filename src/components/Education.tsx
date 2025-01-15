@@ -24,7 +24,7 @@ export default function Education() {
       degree: "Summa Cum Laude Graduate, National Merit Scholarship Finalist",
       location: "Mercedes, TX",
       period: "Class of 2023",
-      logo: "/ScitechLogo.png",
+      logo: "/SciTechLogo.png",
       color: "bg-blue-50",
       details: []
     }
