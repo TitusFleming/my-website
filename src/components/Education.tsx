@@ -1,6 +1,5 @@
 import { Badge } from "@/components/badge";
 import { Card, CardContent } from "@/components/card";
-import { School, GraduationCap } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Education() {
@@ -21,12 +20,13 @@ export default function Education() {
       ]
     },
     {
-      school: "South Texas ISD Science Academy",
-      degree: "Science Academy",
-      period: "2019 - 2023",
+      school: "Science Academy of South Texas",
+      degree: "Summa Cum Laude Graduate, National Merit Scholarship Finalist",
+      location: "Mercedes, TX",
+      period: "Class of 2023",
       logo: "/ScitechLogo.png",
       color: "bg-blue-50",
-      details: []  // Removed specific classes as requested
+      details: []
     }
   ];
 
@@ -48,7 +48,12 @@ export default function Education() {
                         height={40}
                         className="mr-2"
                       />
-                      <h3 className="text-xl font-semibold text-slate-800">{edu.school}</h3>
+                      <div>
+                        <h3 className="text-xl font-semibold text-slate-800">{edu.school}</h3>
+                        {edu.location && (
+                          <p className="text-sm text-slate-600">{edu.location}</p>
+                        )}
+                      </div>
                     </div>
                     <p className="text-slate-600">{edu.degree}</p>
                   </div>
@@ -58,7 +63,7 @@ export default function Education() {
                 </div>
                 {edu.details.length > 0 && (
                   <div className="md:w-2/3 p-6 bg-gradient-to-br from-white via-transparent to-transparent">
-                    <h4 className="text-lg font-semibold text-slate-700 mb-3">Notable Classes</h4>
+                    <h4 className="text-lg font-semibold text-slate-700 mb-3">Relevant Courses</h4>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {edu.details.map((detail, detailIndex) => (
                         <li key={detailIndex} className="flex items-start">
