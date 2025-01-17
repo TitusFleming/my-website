@@ -7,7 +7,7 @@ export default function Intro() {
         <div className="w-48 md:w-64 flex-shrink-0">
           <Image
             src="/Tito.png"
-            alt="Richard 'Tito' Fleming"
+            alt='Richard "Tito" Fleming'
             width={300}
             height={300}
             className="rounded-full shadow-lg"
@@ -15,7 +15,7 @@ export default function Intro() {
           />
         </div>
         <div className="text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">Richard "Tito" Fleming</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-3">Richard &quot;Tito&quot; Fleming</h1>
           <h2 className="text-xl md:text-2xl text-slate-600 mb-4">Computer Science Student at Brown University</h2>
           <p className="text-slate-700 max-w-2xl">
             Passionate about software development, artificial intelligence, and using technology to solve real-world problems. 
