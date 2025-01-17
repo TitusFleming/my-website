@@ -8,18 +8,33 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 export default function Home() {
-
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       <main className="container mx-auto px-4 py-8">
-        <Intro />
-        <Education />
-        <Skills />
-        <Projects />
-        <Certifications />
-        <Contact />
+        <div className="animate-fade-up">
+          <Intro />
+        </div>
+        
+        <div className="animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <Education />
+        </div>
+        
+        <div className="animate-fade-up" style={{ animationDelay: '0.3s' }}>
+          <Skills />
+        </div>
+        
+        <div className="animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <Projects />
+        </div>
+        
+        <div className="animate-fade-up" style={{ animationDelay: '0.5s' }}>
+          <Certifications />
+        </div>
+        
+        <div className="animate-fade-up" style={{ animationDelay: '0.6s' }}>
+          <Contact />
+        </div>
       </main>
       <Footer />
     </div>
