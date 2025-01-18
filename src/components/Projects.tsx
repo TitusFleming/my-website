@@ -7,7 +7,7 @@ export default function Projects() {
   const projects = [
     {
       title: "Soccer Stats Chat",
-      description: "Built an interactive web app using Next.js and OpenAI that enables natural conversations about soccer player statistics, featuring real-time chat and comprehensive player data.",
+      description: "Built an interactive web app using Next.js and OpenAI that enables natural conversations about soccer player statistics from Europe's top 5 leagues (as of December 2024), featuring real-time chat and comprehensive player data.",
       color: "bg-green-50",
       link: "https://soccer.titofleming.com",
       technologies: ["Next.js", "OpenAI", "PostgreSQL", "TypeScript", "Tailwind CSS"]
