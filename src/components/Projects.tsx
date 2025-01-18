@@ -6,6 +6,13 @@ import Link from 'next/link';
 export default function Projects() {
   const projects = [
     {
+      title: "Soccer Stats Chat",
+      description: "Built an interactive web app using Next.js and OpenAI that enables natural conversations about soccer player statistics, featuring real-time chat and comprehensive player data.",
+      color: "bg-green-50",
+      link: "https://soccer.titofleming.com",
+      technologies: ["Next.js", "OpenAI", "PostgreSQL", "TypeScript", "Tailwind CSS"]
+    },
+    {
       title: "Full-Stack CRUD App",
       description: "Built a full-stack CRUD application using Next.js, Prisma ORM, and PostgreSQL. Features user authentication, real-time updates, and a responsive UI.",
       color: "bg-blue-50",
@@ -29,11 +36,11 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16">
       <h2 className="text-3xl font-semibold text-slate-800 mb-8 text-center">Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <Card key={index} className={`${project.color} border-none shadow-lg hover:shadow-xl transition-all`}>
+          <Card key={index} className={`${project.color} border-none shadow-lg hover:shadow-xl transition-shadow`}>
             <CardContent className="p-6">
-              <h3 className="text-xl font-semibold text-slate-800 mb-2">{project.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-slate-800">{project.title}</h3>
               <p className="text-slate-600 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
